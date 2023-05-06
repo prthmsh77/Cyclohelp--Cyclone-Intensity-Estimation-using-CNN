@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-image: url({{url_for('static', filename='/cylone.jpg')}});
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>CycloHelp</p>
+        </div>
+        <ul>
+            <li><a href="http://127.0.0.1:5000">Home</a></li>
+            <li><a href="http://127.0.0.1:5000/emergency" id="Emer">Emergency</a></li>
+            <li><a href="http://127.0.0.1:5000/about">About</a></li>
+        </ul>
+    </nav>
+    <div class="background">
+        <div class="area">
+            <div class="block1">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="imagebox">
+                        <div class="container">
+                            <input type="file" class="upload_hide" id="upload_costum" name="upload_costum" required>
+                            <label for="upload_costum" class="upload_label">
+                                <div class="image">
+                                    <img src="" alt="">
+                                </div>
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p cla ss="drag_text">Upload Cyclone Image</p>
+                                <button class="choose_file">choose file</button>
+
+                            </label>
+
+                        </div>
+                        <script src="https://code.jquery.com/jquery-3.6.4.js"
+                            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+
+                            </script>
+                        <script>
+
+                            $('#upload_costum').change(function (event) {
+                                let tmppath = URL.createObjectURL(event.target.files[0])
+                                $('.image > img').fadeIn('fast').attr('src', tmppath)
+
+                            })
+                        </script>
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="predictbutton" value="Predict Intensity">
+                    </div>
+                </form>
+            </div>
+
+            <div class="block2">
+                <div class="title">
+                    <h1>Cyclone Intensity Estimation</h1>
+                </div>
+                <div class="discription">
+                    <p> <br>
+                        Predicted Intensity is {{pred}} 
+                        <br>
+                        <br>
+                        category: {{Category}}
+                        <br>
+                        <br>
+                        Damage: {{Damage}}
+                        <br>
+                        <br>
+                        Alert Status: {{alert_text}}
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- <img src="Images/cylone.jpg" alt="image"> -->
+    </div>
+</body>
+
+</html>

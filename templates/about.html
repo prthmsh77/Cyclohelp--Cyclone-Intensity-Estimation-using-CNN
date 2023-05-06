@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link rel="stylesheet" href = "/static/about.css">
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-image: url({{url_for('static', filename='/c3_img.jpg')}});
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>CycloHelp</p>
+        </div>
+        <ul>
+            <li><a href="http://127.0.0.1:5000">  Home</a></li>
+            <li><a href="http://127.0.0.1:5000/emergency">Emergency</a></li>
+            <li><a href="http://127.0.0.1:5000/about" id="about">About</a></li>
+        </ul>
+    </nav>
+    <div class="background">
+        <div class="area">
+            
+            <div class="block2">
+                <div class="title">
+                    <h1>What is CycloHelp?</h1>
+                </div>
+                <div class="discription">
+                    <p>Cyclohelp is website which predict intensity of an cyclone using satellite images by using CNN 
+                        This website consists of two main pages Home page and emergency page .
+                        
+                        In home page when image is uploaded with the help of CNN it predicts the intensity of cyclone
+                        When intensity of cyclone is more than a particular range in emergency page it raise an alert by sending email to people of particular area where cyclone can have adverse impact.</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- <img src="c3_img.jpg" alt="image"> -->
+    </div>
+</body>
+
+</html>

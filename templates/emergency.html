@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Page</title>
+    <link rel="stylesheet" href="/static/emergency.css">
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-image: url({{url_for('static', filename='/cylone.jpg')}});
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>CycloHelp</p>
+        </div>
+        <ul>
+            <li><a href="http://127.0.0.1:5000">Home</a></li>
+            <li><a href="http://127.0.0.1:5000/emergency" id="Emer">Emergency</a></li>
+            <li><a href="http://127.0.0.1:5000/about">About</a></li>
+        </ul>
+    </nav>
+    <div class="background">
+        <div class="area">
+            <div class="block1">
+                <form action="/predict" method="post">
+
+                    <div class="textbox">
+                        <textarea placeholder="Message Here" name="text" class="message"></textarea>
+                    </div>
+
+                    <div class="btn">
+                        <input type="submit" class="raiseemergencybtn" value="Raise Emergency Elert">
+                    </div>
+                </form>
+
+
+            </div>
+
+
+            <div class="block2">
+                <div class="title">
+                    <h1>Cyclone Alert System</h1>
+                </div>
+                <div class="discription">
+                    <p>Alert status:
+                    <p class="alert">{{alert_text}}</p><br>
+                    <h3>Cyclone: Do's & Dont's</h3>
+                    <p>
+                    <ul>
+                        <li>Check the house; secure loose tiles and carry out repairs of doors and windows</li>
+                        <li>Keep some wooden boards ready so that glass windows can be boarded if needed</li>
+                    </ul>
+                    </p>
+                    <p>
+                    <ul>
+                        <li>You should remain in the shelter until informed that you can return to your home.</li>
+                        <li>You must get inoculated against diseases immediately.</li>
+                    </ul>
+                    </p>
+                    <a href="https://ndma.gov.in/Natural-Hazards/Cyclone">for more information</a>
+                </div>
+            </div>
+
+        </div>
+        <img src="Images/cylone.jpg" alt="image">
+    </div>
+</body>
+
+</html>
